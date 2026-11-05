@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+/*
+ * Identidade visual Believi IA.
+ * Mantemos as cores da marca como variáveis CSS, conforme especificado:
+ * fundo verde escuro, destaque ciano, texto secundário cinza-azulado e branco.
+ */
+:root {
+  --believi-dark: #032e2b;
+  --believi-dark-deeper: #021f1d;
+  --believi-cyan: #06ffef;
+  --believi-gray: #c8d1d9;
+  --believi-white: #ffffff;
+
+  --background: var(--believi-dark);
+  --foreground: var(--believi-white);
+}
+
+@theme inline {
+  --color-believi-dark: var(--believi-dark);
+  --color-believi-dark-deeper: var(--believi-dark-deeper);
+  --color-believi-cyan: var(--believi-cyan);
+  --color-believi-gray: var(--believi-gray);
+  --color-believi-white: var(--believi-white);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+/* Foco visível e consistente para navegação por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--believi-cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Utilitário de animação de entrada ao rolar */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Animações leves das demonstrações ilustrativas da seção "Aplicações" */
+@keyframes believi-row-in {
+  from {
+    opacity: 0.2;
+    transform: scaleX(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes believi-flow-dot {
+  0% {
+    left: 4%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: 92%;
+    opacity: 0;
+  }
+}
+
+@keyframes believi-blink {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-believi-row-in {
+  transform-origin: left center;
+  animation: believi-row-in 1.8s ease-in-out infinite alternate;
+}
+
+.animate-believi-flow-dot {
+  animation: believi-flow-dot 3.2s ease-in-out infinite;
+}
+
+.animate-believi-blink {
+  animation: believi-blink 2.4s ease-in-out infinite;
+}
