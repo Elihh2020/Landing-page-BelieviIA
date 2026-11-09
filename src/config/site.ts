@@ -35,11 +35,11 @@ export type WhatsAppSection = keyof typeof WHATSAPP_MESSAGES;
 
 /** Links de navegação do cabeçalho (âncoras internas). */
 export const NAV_LINKS = [
-  { href: "#problemas", label: "Problemas" },
-  { href: "#solucoes", label: "Soluções" },
-  { href: "#como-funciona", label: "Como funciona" },
-  { href: "#aplicacoes", label: "Aplicações" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#problemas", label: "Problemas" },
+  { href: "/#solucoes", label: "Soluções" },
+  { href: "/#como-funciona", label: "Como funciona" },
+  { href: "/#aplicacoes", label: "Aplicações" },
+  { href: "/#faq", label: "FAQ" },
 ] as const;
 
 /** IDs de rastreamento — substitua pelos valores reais antes de publicar. */

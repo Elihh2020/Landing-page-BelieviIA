@@ -315,7 +315,7 @@ export default function FormularioDiagnostico() {
               </Field>
 
               <Field
-                label="Descreva brevemente como esse processo funciona atualmente"
+                label="Descreva brevemente como esse processo funciona hoje"
                 htmlFor="comoFunciona"
                 error={errors.comoFunciona}
                 required

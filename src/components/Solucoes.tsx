@@ -17,7 +17,7 @@ const SOLUCOES = [
   },
   {
     title: "Conversão e processamento de PDFs",
-    text: "Converter, organizar, extrair e processar informações de documentos, conforme a necessidade de cada operação.",
+    text: "Conversão, organização e extração de informações de documentos, conforme a necessidade de cada operação.",
     tone: { bg: "#2A1A14", border: "#4A2A1E", stroke: "#FF8A5B" },
     icon: (
       <>

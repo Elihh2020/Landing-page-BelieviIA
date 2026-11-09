@@ -39,7 +39,7 @@ const PROBLEMAS = [
   },
   {
     title: "Falta de sistemas específicos",
-    text: "Sua empresa precisa de uma ferramenta para controlar um processo, mas as soluções do mercado não atendem exatamente?",
+    text: "Sua empresa precisa de uma ferramenta para controlar um processo, mas as soluções do mercado não atendem ao que ela precisa?",
     link: "sistemas personalizados",
     icon: (
       <>
@@ -97,7 +97,7 @@ export default function Problemas() {
 
         <Reveal delayMs={PROBLEMAS.length * 70} className="h-full">
           <div className="flex h-full min-h-[260px] flex-col justify-between gap-6 rounded-2xl bg-bv-accent p-7 text-bv-bg">
-            <span className="font-mono text-xs">SE RECONHECEU ALGUM?</span>
+            <span className="font-mono text-xs">SE IDENTIFICOU?</span>
             <p className="m-0 text-[26px] font-semibold leading-[1.15] tracking-[-0.5px]">
               Se algum desses problemas faz parte da sua rotina, podemos desenvolver uma solução
               para sua empresa.

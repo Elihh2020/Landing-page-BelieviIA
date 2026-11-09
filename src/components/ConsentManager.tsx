@@ -56,7 +56,7 @@ export default function ConsentManager() {
           <div className="mx-auto flex max-w-6xl flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="font-body text-sm text-believi-gray">
               Usamos cookies para melhorar sua experiência e medir o desempenho das
-              nossas campanhas. Ao continuar navegando, você concorda com nossa{" "}
+              nossas campanhas. Você pode aceitar ou recusar. Saiba mais na nossa{" "}
               <a href="/politica-de-privacidade" className="text-believi-cyan underline">
                 Política de Privacidade
               </a>

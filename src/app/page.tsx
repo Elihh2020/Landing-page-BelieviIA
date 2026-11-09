@@ -1,3 +1,4 @@
+import { jsonLd } from "@/lib/jsonLd";
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Problemas from "@/components/Problemas";
@@ -35,7 +36,7 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(faqJsonLd) }}
       />
       <main>
         <Hero />

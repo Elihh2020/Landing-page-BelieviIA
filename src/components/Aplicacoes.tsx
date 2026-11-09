@@ -10,22 +10,22 @@ import { CONTAINER, H2 } from "@/lib/ui";
 const APLICACOES = [
   {
     title: "Planilhas inteligentes",
-    text: "Informações sendo inseridas e automaticamente organizadas em uma planilha ou relatório.",
+    text: "Informações inseridas e organizadas automaticamente em planilhas ou relatórios.",
     Demo: SmartSheetsDemo,
   },
   {
     title: "Processamento de documentos",
-    text: "PDFs sendo recebidos, processados e organizados em uma estrutura de informações.",
+    text: "PDFs recebidos, lidos e transformados em dados organizados.",
     Demo: DocumentProcessingDemo,
   },
   {
     title: "Integração entre sistemas",
-    text: "Dados saindo de uma ferramenta e sendo encaminhados automaticamente para outra.",
+    text: "Dados enviados automaticamente de uma ferramenta para outra.",
     Demo: SystemIntegrationDemo,
   },
   {
     title: "Sistema personalizado",
-    text: "Interface ilustrativa de controle de tarefas, solicitações ou processos internos.",
+    text: "Controle de tarefas, solicitações e processos internos em um só lugar.",
     Demo: CustomSystemDemo,
   },
 ];

@@ -20,7 +20,7 @@ export default function PoliticaDePrivacidadePage() {
           Política de Privacidade
         </h1>
         <p className="mt-2 font-body text-sm text-believi-gray">
-          Última atualização: {new Date().toLocaleDateString("pt-BR")}
+          Última atualização: 9 de novembro de 2026
         </p>
 
         <div className="mt-8 space-y-8 font-body text-base leading-relaxed text-believi-gray">

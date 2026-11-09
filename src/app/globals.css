@@ -156,6 +156,84 @@ textarea:focus {
   animation: bv-rowin 5s ease-in-out infinite;
 }
 
+/* Demonstração animada do produto (Clinic.Chat) */
+@keyframes pd-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pd-grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes pd-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes pd-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+@keyframes pd-click {
+  from {
+    opacity: 0.6;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+@keyframes pd-flash {
+  from {
+    background-color: rgba(212, 179, 12, 0.28);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+.pd-in {
+  animation: pd-in 0.45s ease-out both;
+}
+.pd-grow {
+  transform-origin: bottom;
+  animation: pd-grow 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.pd-fill {
+  transform-origin: left;
+  animation: pd-fill 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.pd-dot {
+  animation: pd-dot 1s ease-in-out infinite;
+}
+.pd-click {
+  animation: pd-click 0.5s ease-out both;
+}
+.pd-flash {
+  animation: pd-flash 2.4s ease-out both;
+}
+
 /* Fundo pontilhado das demonstrações */
 .bv-dots {
   background-image: radial-gradient(#1e2423 1px, transparent 1px);
@@ -200,7 +278,12 @@ details[open] .bv-plus {
   .bv-flow,
   .bv-floaty,
   .bv-pulse,
-  .bv-rowin {
+  .bv-rowin,
+  .pd-in,
+  .pd-grow,
+  .pd-fill,
+  .pd-dot,
+  .pd-flash {
     animation: none;
   }
   .bv-parallax {

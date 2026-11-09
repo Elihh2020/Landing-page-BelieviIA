@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/config/site";
 import CtaLink from "@/components/CtaLink";
@@ -25,9 +26,9 @@ export default function Header() {
   return (
     <header className="relative z-20 py-5 sm:py-7">
       <div className="flex items-center justify-between gap-4">
-        <a href="#top" aria-label="Believi IA — início">
+        <Link href="/" aria-label="Believi IA — início">
           <Logo />
-        </a>
+        </Link>
 
         <nav aria-label="Principal" className="hidden items-center gap-8 text-[15px] font-medium lg:flex">
           {NAV_LINKS.map((link) => (
@@ -42,7 +43,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <CtaLink href="#diagnostico" trackName="cta_header" variant="outline">
+          <CtaLink href="/#diagnostico" trackName="cta_header" variant="outline">
             Falar com a equipe
           </CtaLink>
         </div>
@@ -76,7 +77,7 @@ export default function Header() {
             </a>
           ))}
           <CtaLink
-            href="#diagnostico"
+            href="/#diagnostico"
             trackName="cta_header"
             variant="primary"
             className="mt-2 w-full"

@@ -17,7 +17,7 @@ const ETAPAS = [
   },
   {
     titulo: "Implementamos e entregamos",
-    texto: "A solução é implementada conforme o escopo definido, com orientações para o uso.",
+    texto: "A solução é implementada conforme o escopo definido, com orientações de uso.",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function ComoFunciona() {
           <p className="m-0 flex-[1_1_520px] text-[clamp(20px,2vw,26px)] font-medium leading-[1.35]">
             Sua empresa não precisa se adaptar a uma ferramenta genérica.{" "}
             <span className="text-bv-accent">
-              A solução pode ser desenvolvida para se adaptar à sua operação.
+              A solução é que se adapta à sua operação.
             </span>
           </p>
           <CtaLink

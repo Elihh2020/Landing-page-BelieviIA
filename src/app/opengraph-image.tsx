@@ -1,13 +1,16 @@
 import { ImageResponse } from "next/og";
+import { join } from "node:path";
+import { readFile } from "node:fs/promises";
+
+export const alt = "Believi IA — automação de processos e soluções personalizadas";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-/**
- * Imagem Open Graph gerada em build-time. Substitua por uma arte oficial da
- * marca (com o logo real) quando disponível — basta trocar este arquivo por
- * uma imagem estática (ex.: opengraph-image.png) na mesma pasta.
- */
+const logoData = await readFile(join(process.cwd(), "public/logo-believi.png"), "base64");
+const logoSrc = `data:image/png;base64,${logoData}`;
+
+/** Imagem de compartilhamento (Open Graph), gerada no build com a logo oficial. */
 export default function OpengraphImage() {
   return new ImageResponse(
     (
@@ -25,23 +28,7 @@ export default function OpengraphImage() {
           padding: 80,
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 16,
-            border: "3px solid #2DE2D0",
-            borderRadius: 16,
-            padding: "16px 32px",
-          }}
-        >
-          <span style={{ fontSize: 56, fontWeight: 700, color: "#E6EEEC" }}>
-            Believi
-          </span>
-          <span style={{ fontSize: 56, fontWeight: 700, color: "#2DE2D0" }}>
-            IA
-          </span>
-        </div>
+        <img src={logoSrc} alt="" width={606} height={142} />
         <p
           style={{
             marginTop: 40,

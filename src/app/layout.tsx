@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, jetbrainsMono, caveat } from "@/lib/fonts";
-import { SITE_URL, SITE_NAME } from "@/config/site";
+import {
+  LINKEDIN_URL,
+  SITE_NAME,
+  SITE_URL,
+  SOCIAL_URL,
+  WHATSAPP_NUMBER,
+} from "@/config/site";
+import { jsonLd } from "@/lib/jsonLd";
 import UtmCapture from "@/components/UtmCapture";
 import ConsentManager from "@/components/ConsentManager";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
@@ -43,9 +50,25 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: SITE_NAME,
   url: SITE_URL,
+  logo: `${SITE_URL}/icon.png`,
   description:
     "Desenvolvimento de soluções personalizadas de automação de processos, integração de sistemas e processamento de documentos para empresas.",
-  sameAs: ["https://instagram.com/believi.ia"],
+  areaServed: "BR",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: `+${WHATSAPP_NUMBER}`,
+    contactType: "customer service",
+    availableLanguage: "Portuguese",
+  },
+  sameAs: [SOCIAL_URL, LINKEDIN_URL],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE_NAME,
+  url: SITE_URL,
+  inLanguage: "pt-BR",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -57,7 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-bv-bg font-sans text-bv-text antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd([organizationJsonLd, websiteJsonLd]) }}
         />
         <UtmCapture />
         {children}
