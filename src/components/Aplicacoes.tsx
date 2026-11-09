@@ -5,6 +5,7 @@ import {
   SystemIntegrationDemo,
   CustomSystemDemo,
 } from "@/components/illustrations/ApplicationDemos";
+import { CONTAINER, H2 } from "@/lib/ui";
 
 const APLICACOES = [
   {
@@ -31,40 +32,29 @@ const APLICACOES = [
 
 export default function Aplicacoes() {
   return (
-    <section className="bg-believi-dark py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <Reveal>
-          <h2 className="max-w-3xl font-heading text-2xl font-bold leading-tight text-believi-white sm:text-3xl lg:text-4xl">
-            Veja o que pode ser{" "}
-            <span className="text-believi-cyan">transformado</span> dentro de
-            uma empresa.
-          </h2>
-        </Reveal>
-
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {APLICACOES.map(({ title, text, Demo }, i) => (
-            <Reveal key={title} delayMs={i * 80}>
-              <div className="rounded-2xl border border-believi-white/10 bg-believi-dark-deeper p-5">
-                <span className="inline-block rounded-full border border-believi-cyan/30 px-3 py-1 font-body text-[11px] font-semibold uppercase tracking-wide text-believi-cyan">
-                  Demonstração ilustrativa
-                </span>
-                <h3 className="mt-3 font-heading text-lg font-semibold text-believi-white">
-                  {title}
-                </h3>
-                <p className="mt-1.5 font-body text-sm leading-relaxed text-believi-gray">
-                  {text}
-                </p>
-                <div className="mt-4">
-                  <Demo />
-                </div>
-                <p className="mt-2 font-body text-[11px] italic text-believi-gray/70">
-                  Exemplo de aplicação com dados fictícios, apenas para
-                  ilustração.
-                </p>
-              </div>
-            </Reveal>
-          ))}
+    <section id="aplicacoes" className={`${CONTAINER} pt-24 sm:pt-[140px]`}>
+      <Reveal>
+        <div className="grid items-end gap-x-16 gap-y-6 lg:grid-cols-2">
+          <div className="flex flex-col gap-4">
+            <h2 className={H2}>Veja o que pode ser transformado dentro de uma empresa.</h2>
+          </div>
+          <p className="m-0 text-base leading-[1.6] text-bv-subtle">
+            As telas abaixo são demonstrações ilustrativas de aplicações possíveis. Cada projeto é
+            desenvolvido conforme o processo do cliente.
+          </p>
         </div>
+      </Reveal>
+
+      <div className="mt-12 grid gap-4 lg:grid-cols-2">
+        {APLICACOES.map(({ title, text, Demo }, i) => (
+          <Reveal key={title} delayMs={i * 80} className="h-full">
+            <div className="bv-dots flex h-full flex-col gap-[18px] rounded-2xl border border-bv-border bg-[#0B0F0E] p-5 sm:p-[26px]">
+              <h3 className="m-0 text-[21px] font-semibold">{title}</h3>
+              <Demo />
+              <p className="m-0 text-sm leading-[1.55] text-bv-muted">{text}</p>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );

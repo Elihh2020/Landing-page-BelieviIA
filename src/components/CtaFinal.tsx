@@ -1,32 +1,25 @@
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Reveal from "@/components/Reveal";
+import { CONTAINER } from "@/lib/ui";
 
 export default function CtaFinal() {
   return (
-    <section className="relative overflow-hidden bg-believi-dark py-20 sm:py-28">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-believi-cyan/10 blur-3xl"
-      />
-      <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
-        <Reveal>
-          <h2 className="font-heading text-2xl font-bold leading-tight text-believi-white sm:text-3xl lg:text-4xl">
-            Sua empresa pode trabalhar de uma maneira{" "}
-            <span className="text-believi-cyan">mais inteligente</span>.
+    <section id="contato" className={`${CONTAINER} pt-24 sm:pt-[140px]`}>
+      <Reveal>
+        <div className="flex flex-col items-center gap-6 rounded-3xl border border-bv-border-accent bg-bv-panel px-6 py-14 text-center sm:px-10 sm:py-[72px]">
+          <h2 className="m-0 max-w-[860px] text-[clamp(32px,4vw,56px)] font-semibold leading-[1.05] tracking-[-2px]">
+            Sua empresa pode trabalhar de uma maneira mais inteligente.
           </h2>
-          <p className="mt-5 font-body text-base leading-relaxed text-believi-gray sm:text-lg">
-            Não deixe processos manuais, tarefas repetitivas e sistemas
-            desconectados limitarem a eficiência da sua operação. Conte seu
-            desafio para a Believi IA. Vamos avaliar como desenvolver uma
-            solução para sua empresa.
+          <p className="m-0 max-w-[620px] text-lg leading-[1.6] text-bv-muted">
+            Não deixe processos manuais, tarefas repetitivas e sistemas desconectados limitarem sua
+            operação. Conte seu desafio — vamos avaliar como desenvolver uma solução para a sua
+            empresa.
           </p>
-          <div className="mt-8 flex justify-center">
-            <WhatsAppButton section="ctaFinal" variant="primary">
-              QUERO DESENVOLVER UMA SOLUÇÃO
-            </WhatsAppButton>
-          </div>
-        </Reveal>
-      </div>
+          <WhatsAppButton section="ctaFinal" variant="primary" className="min-h-[56px] px-7 text-[17px]">
+            Quero desenvolver uma solução
+          </WhatsAppButton>
+        </div>
+      </Reveal>
     </section>
   );
 }

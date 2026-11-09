@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { poppins, openSans } from "@/lib/fonts";
+import { spaceGrotesk, jetbrainsMono, caveat } from "@/lib/fonts";
 import { SITE_URL, SITE_NAME } from "@/config/site";
 import UtmCapture from "@/components/UtmCapture";
 import ConsentManager from "@/components/ConsentManager";
@@ -52,9 +52,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="pt-BR"
-      className={`${poppins.variable} ${openSans.variable}`}
+      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${caveat.variable}`}
     >
-      <body className="min-h-screen bg-believi-dark font-body text-believi-white antialiased">
+      <body className="min-h-screen bg-bv-bg font-sans text-bv-text antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}

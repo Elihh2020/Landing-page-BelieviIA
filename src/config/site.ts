@@ -18,6 +18,8 @@ export const WHATSAPP_NUMBER_DISPLAY = "(11) 95913-2422";
 
 export const SOCIAL_HANDLE = "@believi.ia";
 export const SOCIAL_URL = "https://instagram.com/believi.ia";
+/** LinkedIn da empresa — CONFIRMAR o endereço oficial. */
+export const LINKEDIN_URL = "https://www.linkedin.com/company/believi-ia";
 
 /** Mensagens pré-preenchidas do WhatsApp, por origem/seção do clique. */
 export const WHATSAPP_MESSAGES = {
@@ -36,6 +38,7 @@ export const NAV_LINKS = [
   { href: "#problemas", label: "Problemas" },
   { href: "#solucoes", label: "Soluções" },
   { href: "#como-funciona", label: "Como funciona" },
+  { href: "#aplicacoes", label: "Aplicações" },
   { href: "#faq", label: "FAQ" },
 ] as const;
 

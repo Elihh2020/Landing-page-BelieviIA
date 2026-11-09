@@ -1,121 +1,110 @@
 @import "tailwindcss";
 
 /*
- * Identidade visual Believi IA.
- * Mantemos as cores da marca como variáveis CSS, conforme especificado:
- * fundo verde escuro, destaque ciano, texto secundário cinza-azulado e branco.
+ * Identidade visual Believi IA — "Técnica v2".
+ * Fundo quase preto, destaque ciano/teal, tipografia Space Grotesk + JetBrains Mono.
  */
 :root {
-  --believi-dark: #032e2b;
-  --believi-dark-deeper: #021f1d;
-  --believi-cyan: #06ffef;
-  --believi-gray: #c8d1d9;
-  --believi-white: #ffffff;
-
-  --background: var(--believi-dark);
-  --foreground: var(--believi-white);
+  --bv-bg: #070a0a;
+  --bv-panel: #0b1211;
+  --bv-card: #0e1312;
+  --bv-surface: #111716;
+  --bv-surface-2: #151c1b;
+  --bv-border: #1e2826;
+  --bv-border-2: #22302e;
+  --bv-border-accent: #22413d;
+  --bv-text: #e6eeec;
+  --bv-text-2: #b8c6c2;
+  --bv-muted: #a6b5b1;
+  --bv-subtle: #7e8c88;
+  --bv-dim: #5e6b67;
+  --bv-accent: #2de2d0;
+  --bv-accent-bg: #10302c;
+  --bv-accent-border: #1e4a44;
 }
 
 @theme inline {
-  --color-believi-dark: var(--believi-dark);
-  --color-believi-dark-deeper: var(--believi-dark-deeper);
-  --color-believi-cyan: var(--believi-cyan);
-  --color-believi-gray: var(--believi-gray);
-  --color-believi-white: var(--believi-white);
+  --color-bv-bg: var(--bv-bg);
+  --color-bv-panel: var(--bv-panel);
+  --color-bv-card: var(--bv-card);
+  --color-bv-surface: var(--bv-surface);
+  --color-bv-surface-2: var(--bv-surface-2);
+  --color-bv-border: var(--bv-border);
+  --color-bv-border-2: var(--bv-border-2);
+  --color-bv-border-accent: var(--bv-border-accent);
+  --color-bv-text: var(--bv-text);
+  --color-bv-text-2: var(--bv-text-2);
+  --color-bv-muted: var(--bv-muted);
+  --color-bv-subtle: var(--bv-subtle);
+  --color-bv-dim: var(--bv-dim);
+  --color-bv-accent: var(--bv-accent);
+  --color-bv-accent-bg: var(--bv-accent-bg);
+  --color-bv-accent-border: var(--bv-accent-border);
 
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Apelidos dos nomes antigos (usados nas páginas de Política/Termos e no banner de cookies) */
+  --color-believi-dark: var(--bv-bg);
+  --color-believi-dark-deeper: var(--bv-panel);
+  --color-believi-cyan: var(--bv-accent);
+  --color-believi-gray: var(--bv-muted);
+  --color-believi-white: var(--bv-text);
+  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 
-  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-hand: var(--font-caveat), cursive;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+body {
+  background: var(--bv-bg);
+  color: var(--bv-text);
+  font-family: var(--font-sans);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body);
+input,
+select,
+textarea {
+  font: inherit;
 }
 
 /* Foco visível e consistente para navegação por teclado */
 a:focus-visible,
 button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible,
 summary:focus-visible {
-  outline: 2px solid var(--believi-cyan);
+  outline: 2px solid var(--bv-accent);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
-/* Utilitário de animação de entrada ao rolar */
-.reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--bv-accent);
+  outline-offset: 1px;
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
-/* Animações leves das demonstrações ilustrativas da seção "Aplicações" */
-@keyframes believi-row-in {
-  from {
-    opacity: 0.2;
-    transform: scaleX(0.4);
-  }
+/* ---------- Animações ---------- */
+@keyframes bv-flow {
   to {
-    opacity: 1;
-    transform: scaleX(1);
+    stroke-dashoffset: -240;
   }
 }
 
-@keyframes believi-flow-dot {
-  0% {
-    left: 4%;
-    opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
-  }
+@keyframes bv-floaty {
+  0%,
   100% {
-    left: 92%;
-    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
   }
 }
 
-@keyframes believi-blink {
+@keyframes bv-pulse {
   0%,
   100% {
     opacity: 0.35;
@@ -125,15 +114,102 @@ summary:focus-visible {
   }
 }
 
-.animate-believi-row-in {
-  transform-origin: left center;
-  animation: believi-row-in 1.8s ease-in-out infinite alternate;
+@keyframes bv-rowin {
+  0%,
+  15% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  25%,
+  85% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-.animate-believi-flow-dot {
-  animation: believi-flow-dot 3.2s ease-in-out infinite;
+.bv-flow {
+  stroke-dasharray: 4 16;
+  animation: bv-flow 4s linear infinite;
+}
+.bv-flow.slow {
+  animation-duration: 7s;
+}
+.bv-floaty {
+  animation: bv-floaty 6s ease-in-out infinite;
+}
+.bv-floaty.d2 {
+  animation-delay: -2s;
+}
+.bv-floaty.d3 {
+  animation-delay: -4s;
+}
+.bv-pulse {
+  animation: bv-pulse 2.4s ease-in-out infinite;
+}
+.bv-pulse.d2 {
+  animation-delay: -0.8s;
+}
+.bv-rowin {
+  animation: bv-rowin 5s ease-in-out infinite;
 }
 
-.animate-believi-blink {
-  animation: believi-blink 2.4s ease-in-out infinite;
+/* Fundo pontilhado das demonstrações */
+.bv-dots {
+  background-image: radial-gradient(#1e2423 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Camadas do parallax do hero (deslocadas via --px/--py no JS) */
+.bv-parallax {
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+}
+
+/* FAQ com <details> */
+details summary {
+  list-style: none;
+  cursor: pointer;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .bv-plus {
+  transform: rotate(45deg);
+}
+
+/* Entrada ao rolar */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .bv-flow,
+  .bv-floaty,
+  .bv-pulse,
+  .bv-rowin {
+    animation: none;
+  }
+  .bv-parallax {
+    transition: none;
+    transform: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

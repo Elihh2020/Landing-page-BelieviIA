@@ -1,76 +1,121 @@
-import { Table2, FileCog, Share2, LayoutDashboard, Zap } from "lucide-react";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import Reveal from "@/components/Reveal";
+import CtaLink from "@/components/CtaLink";
+import { CONTAINER, H2 } from "@/lib/ui";
 
+/** Cada solução tem um tom próprio para o ícone (fundo, borda, traço). */
 const SOLUCOES = [
   {
-    icon: Table2,
     title: "Automação de planilhas e documentos",
-    text: "Automatização de preenchimentos, atualizações, consolidação de informações, geração de relatórios e processamento de documentos.",
+    text: "Preenchimentos, atualizações, consolidação de informações, relatórios e processamento de documentos — sem digitação manual.",
+    tone: { bg: "#10302C", border: "#1E4A44", stroke: "#2DE2D0" },
+    icon: (
+      <>
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M3 9h18M9 3v18" />
+      </>
+    ),
   },
   {
-    icon: FileCog,
     title: "Conversão e processamento de PDFs",
-    text: "Desenvolvimento de soluções para converter, organizar, extrair e processar informações de documentos, conforme a necessidade de cada operação.",
+    text: "Converter, organizar, extrair e processar informações de documentos, conforme a necessidade de cada operação.",
+    tone: { bg: "#2A1A14", border: "#4A2A1E", stroke: "#FF8A5B" },
+    icon: (
+      <>
+        <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+        <path d="M14 3v6h6" />
+      </>
+    ),
   },
   {
-    icon: Share2,
     title: "Integração entre sistemas",
-    text: "Conexão entre plataformas e ferramentas para permitir que informações circulem automaticamente, reduzindo a necessidade de copiar e transferir dados manualmente.",
+    text: "Plataformas e ferramentas conectadas para que as informações circulem sozinhas, sem copiar e colar dados.",
+    tone: { bg: "#14213A", border: "#22385E", stroke: "#7FB2FF" },
+    icon: (
+      <>
+        <circle cx="6" cy="12" r="3" />
+        <circle cx="18" cy="6" r="3" />
+        <circle cx="18" cy="18" r="3" />
+        <path d="M8.6 10.6l6.8-3.2M8.6 13.4l6.8 3.2" />
+      </>
+    ),
   },
   {
-    icon: LayoutDashboard,
     title: "Sistemas e soluções personalizadas",
-    text: "Desenvolvimento de ferramentas e sistemas específicos para organizar informações, controlar solicitações, acompanhar atividades e resolver necessidades internas.",
+    text: "Ferramentas específicas para organizar informações, controlar solicitações, acompanhar atividades e resolver necessidades internas.",
+    tone: { bg: "#1F1A33", border: "#352B57", stroke: "#B49CFF" },
+    icon: (
+      <>
+        <rect x="3" y="3" width="7" height="7" rx="1" />
+        <rect x="14" y="3" width="7" height="7" rx="1" />
+        <rect x="3" y="14" width="7" height="7" rx="1" />
+        <rect x="14" y="14" width="7" height="7" rx="1" />
+      </>
+    ),
   },
   {
-    icon: Zap,
     title: "Automação de processos internos",
-    text: "Identificação e automatização de etapas operacionais que consomem tempo da equipe e podem ser executadas de maneira mais eficiente.",
+    text: "Identificamos as etapas que consomem tempo da equipe e automatizamos o que pode ser feito de forma mais eficiente.",
+    tone: { bg: "#10302C", border: "#1E4A44", stroke: "#2DE2D0" },
+    icon: <path d="M13 2L4 14h7l-1 8 9-12h-7z" />,
   },
 ];
 
 export default function Solucoes() {
   return (
-    <section id="solucoes" className="bg-believi-dark py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <Reveal>
-          <h2 className="max-w-3xl font-heading text-2xl font-bold leading-tight text-believi-white sm:text-3xl lg:text-4xl">
+    <section id="solucoes" className={`${CONTAINER} pt-24 sm:pt-[140px]`}>
+      <Reveal>
+        <div className="flex max-w-[860px] flex-col gap-4">
+          <h2 className={H2}>
             Não oferecemos apenas ferramentas. Desenvolvemos{" "}
-            <span className="text-believi-cyan">soluções</span> para as
-            necessidades da sua empresa.
+            <span className="text-bv-accent">soluções</span> para a sua empresa.
           </h2>
-          <p className="mt-5 max-w-2xl font-body text-base leading-relaxed text-believi-gray sm:text-lg">
-            Cada empresa possui processos, desafios e necessidades diferentes.
-            Por isso, desenvolvemos soluções personalizadas que se adaptam à
-            realidade da sua operação.
+          <p className="m-0 text-lg leading-[1.6] text-bv-muted">
+            Cada empresa tem processos, desafios e necessidades diferentes. Por isso, cada solução
+            é desenhada para a realidade da sua operação.
           </p>
-        </Reveal>
-
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {SOLUCOES.map((s, i) => (
-            <Reveal key={s.title} delayMs={i * 80}>
-              <div className="h-full rounded-2xl border border-believi-white/10 bg-believi-dark-deeper p-6 transition-colors hover:border-believi-cyan/40">
-                <s.icon size={28} className="text-believi-cyan" strokeWidth={1.5} aria-hidden />
-                <h3 className="mt-4 font-heading text-lg font-semibold text-believi-white">
-                  {s.title}
-                </h3>
-                <p className="mt-2 font-body text-sm leading-relaxed text-believi-gray">
-                  {s.text}
-                </p>
-              </div>
-            </Reveal>
-          ))}
         </div>
+      </Reveal>
 
-        <Reveal delayMs={120}>
-          <div className="mt-14 flex flex-col items-start gap-6 border-t border-believi-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-xl font-heading text-lg font-semibold text-believi-white sm:text-xl">
+      <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {SOLUCOES.map((s, i) => (
+          <Reveal key={s.title} delayMs={i * 70} className="h-full">
+            <article className="flex h-full flex-col gap-3.5 rounded-[18px] border border-bv-border bg-bv-card p-[30px] transition-colors hover:border-bv-border-accent">
+              <div className="flex items-center justify-between">
+                <span
+                  className="inline-flex h-[52px] w-[52px] items-center justify-center rounded-[14px] border"
+                  style={{ background: s.tone.bg, borderColor: s.tone.border }}
+                >
+                  <svg
+                    aria-hidden="true"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke={s.tone.stroke}
+                    strokeWidth="1.8"
+                  >
+                    {s.icon}
+                  </svg>
+                </span>
+                <span className="font-mono text-[13px] text-bv-dim">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <h3 className="m-0 text-[23px] font-semibold leading-tight">{s.title}</h3>
+              <p className="m-0 text-[15px] leading-[1.6] text-bv-muted">{s.text}</p>
+            </article>
+          </Reveal>
+        ))}
+
+        <Reveal delayMs={SOLUCOES.length * 70} className="h-full">
+          <div className="flex h-full min-h-[240px] flex-col justify-between gap-6 rounded-[18px] bg-bv-accent p-[30px] text-bv-bg">
+            <span className="font-mono text-xs">PRÓXIMO PASSO</span>
+            <p className="m-0 text-[28px] font-semibold leading-[1.12] tracking-[-0.5px]">
               Tem um processo que precisa de uma solução?
             </p>
-            <WhatsAppButton section="solucoes" variant="primary" className="flex-none">
-              CONVERSE COM NOSSA EQUIPE
-            </WhatsAppButton>
+            <CtaLink href="#diagnostico" trackName="cta_solucoes_equipe" variant="dark">
+              Converse com nossa equipe
+            </CtaLink>
           </div>
         </Reveal>
       </div>

@@ -1,78 +1,76 @@
 import Reveal from "@/components/Reveal";
+import CtaLink from "@/components/CtaLink";
+import { CONTAINER, H2 } from "@/lib/ui";
 
 const ETAPAS = [
   {
-    numero: "01",
     titulo: "Você apresenta o problema",
-    texto:
-      "Conte como funciona o processo atualmente, quais dificuldades sua equipe enfrenta e o que gostaria de melhorar.",
+    texto: "Conte como o processo funciona hoje, onde a equipe trava e o que gostaria de melhorar.",
   },
   {
-    numero: "02",
     titulo: "Analisamos sua necessidade",
-    texto:
-      "Entendemos o funcionamento da operação e identificamos as possibilidades de automação ou desenvolvimento.",
+    texto: "Entendemos a operação e identificamos as possibilidades de automação ou desenvolvimento.",
   },
   {
-    numero: "03",
     titulo: "Desenvolvemos a solução",
-    texto:
-      "Criamos uma solução personalizada, considerando o processo, as ferramentas utilizadas e os objetivos da empresa.",
+    texto: "Criamos a solução considerando o processo, as ferramentas que você já usa e seus objetivos.",
   },
   {
-    numero: "04",
     titulo: "Implementamos e entregamos",
-    texto:
-      "A solução é implementada conforme o escopo definido, com orientações para sua utilização.",
+    texto: "A solução é implementada conforme o escopo definido, com orientações para o uso.",
   },
 ];
 
 export default function ComoFunciona() {
   return (
-    <section id="como-funciona" className="bg-believi-dark-deeper py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <Reveal>
-          <h2 className="max-w-3xl font-heading text-2xl font-bold leading-tight text-believi-white sm:text-3xl lg:text-4xl">
-            Da identificação do problema à{" "}
-            <span className="text-believi-cyan">solução implementada</span>.
-          </h2>
-        </Reveal>
-
-        <div className="relative mt-14 grid gap-10 lg:grid-cols-4 lg:gap-6">
-          {/* Linha conectora (desktop) */}
-          <div
-            aria-hidden="true"
-            className="absolute top-6 left-0 right-0 hidden h-px bg-gradient-to-r from-transparent via-believi-cyan/50 to-transparent lg:block"
-          />
-
-          {ETAPAS.map((etapa, i) => (
-            <Reveal key={etapa.numero} delayMs={i * 100}>
-              <div className="relative flex gap-4 lg:flex-col lg:gap-5">
-                <div className="relative z-10 flex h-12 w-12 flex-none items-center justify-center rounded-full border-2 border-believi-cyan bg-believi-dark font-heading text-base font-bold text-believi-cyan">
-                  {etapa.numero}
-                </div>
-                <div>
-                  <h3 className="font-heading text-lg font-semibold text-believi-white">
-                    {etapa.titulo}
-                  </h3>
-                  <p className="mt-2 font-body text-sm leading-relaxed text-believi-gray">
-                    {etapa.texto}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+    <section id="como-funciona" className={`${CONTAINER} pt-24 sm:pt-[140px]`}>
+      <Reveal>
+        <div className="flex max-w-[860px] flex-col gap-4">
+          <h2 className={H2}>Da identificação do problema à solução implementada.</h2>
         </div>
+      </Reveal>
 
-        <Reveal delayMs={150}>
-          <p className="mt-16 border-t border-believi-white/10 pt-10 text-center font-heading text-xl font-semibold leading-snug text-believi-white sm:text-2xl">
+      <ol className="m-0 mt-12 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4">
+        {ETAPAS.map((etapa, i) => (
+          <Reveal
+            as="li"
+            key={etapa.titulo}
+            delayMs={i * 90}
+            className="flex h-full flex-col gap-3 rounded-[18px] border border-bv-border bg-bv-card p-7"
+          >
+              <span
+                className={`inline-flex h-[46px] w-[46px] items-center justify-center rounded-full font-mono text-[15px] font-medium ${
+                  i === 0
+                    ? "bg-bv-accent text-bv-bg"
+                    : "border border-bv-accent-border bg-bv-accent-bg text-bv-accent"
+                }`}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="m-0 text-[21px] font-semibold leading-tight">{etapa.titulo}</h3>
+              <p className="m-0 text-[15px] leading-[1.55] text-bv-muted">{etapa.texto}</p>
+          </Reveal>
+        ))}
+      </ol>
+
+      <Reveal delayMs={120}>
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 rounded-[20px] border border-bv-border-accent bg-bv-panel px-6 py-8 sm:px-9">
+          <p className="m-0 flex-[1_1_520px] text-[clamp(20px,2vw,26px)] font-medium leading-[1.35]">
             Sua empresa não precisa se adaptar a uma ferramenta genérica.{" "}
-            <span className="text-believi-cyan">
+            <span className="text-bv-accent">
               A solução pode ser desenvolvida para se adaptar à sua operação.
             </span>
           </p>
-        </Reveal>
-      </div>
+          <CtaLink
+            href="#diagnostico"
+            trackName="cta_como_funciona"
+            variant="primary"
+            className="min-h-[50px] text-[15px]"
+          >
+            Apresentar meu problema
+          </CtaLink>
+        </div>
+      </Reveal>
     </section>
   );
 }

@@ -1,62 +1,42 @@
-"use client";
-
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import { FAQ_ITEMS } from "@/lib/faqData";
+import { CONTAINER, H2 } from "@/lib/ui";
 
 export default function Faq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   return (
-    <section id="faq" className="bg-believi-dark-deeper py-20 sm:py-28">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <Reveal>
-          <h2 className="font-heading text-2xl font-bold leading-tight text-believi-white sm:text-3xl">
-            Perguntas <span className="text-believi-cyan">frequentes</span>
-          </h2>
-        </Reveal>
-
-        <div className="mt-10 divide-y divide-believi-white/10 border-y border-believi-white/10">
-          {FAQ_ITEMS.map((item, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div key={item.question}>
-                <h3>
-                  <button
-                    type="button"
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-panel-${index}`}
-                    id={`faq-button-${index}`}
-                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 py-5 text-left font-heading text-base font-semibold text-believi-white sm:text-lg"
-                  >
-                    {item.question}
-                    <ChevronDown
-                      size={20}
-                      aria-hidden
-                      className={`flex-none text-believi-cyan transition-transform duration-200 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                </h3>
-                <div
-                  id={`faq-panel-${index}`}
-                  role="region"
-                  aria-labelledby={`faq-button-${index}`}
-                  hidden={!isOpen}
-                  className="pb-5"
-                >
-                  <p className="font-body text-sm leading-relaxed text-believi-gray sm:text-base">
-                    {item.answer}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+    <section id="faq" className={`${CONTAINER} grid gap-12 pt-24 sm:pt-[140px] lg:grid-cols-2`}>
+      <Reveal>
+        <div className="flex flex-col gap-4">
+          <h2 className={H2}>Perguntas frequentes</h2>
+          <p className="m-0 text-[17px] leading-[1.6] text-bv-muted">
+            Não achou sua dúvida?{" "}
+            <WhatsAppButton section="float" variant="inline">
+              Fale com a gente no WhatsApp
+            </WhatsAppButton>
+            .
+          </p>
         </div>
-      </div>
+      </Reveal>
+
+      <Reveal delayMs={80}>
+        <div className="flex flex-col border-t border-bv-border">
+          {FAQ_ITEMS.map((item) => (
+            <details key={item.question} className="border-b border-bv-border py-[22px]">
+              <summary className="flex justify-between gap-4 text-[17px] font-medium sm:text-[19px]">
+                {item.question}
+                <span
+                  aria-hidden="true"
+                  className="bv-plus flex-none text-bv-accent transition-transform duration-200"
+                >
+                  +
+                </span>
+              </summary>
+              <p className="m-0 mt-3.5 text-base leading-[1.6] text-bv-muted">{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </Reveal>
     </section>
   );
 }

@@ -56,3 +56,8 @@ export function generateEventId(): string {
   }
   return `lead_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
 }
+
+/** Clique em CTA interno (âncora para o formulário ou outra seção). */
+export function trackCtaClick(ctaName: string): void {
+  pushToDataLayer("cta_click", { cta_name: ctaName });
+}

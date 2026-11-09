@@ -19,7 +19,7 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#032e2b",
+          backgroundColor: "#070A0A",
           backgroundImage:
             "radial-gradient(circle at 85% 15%, rgba(6,255,239,0.25), transparent 55%)",
           padding: 80,
@@ -30,15 +30,15 @@ export default function OpengraphImage() {
             display: "flex",
             alignItems: "center",
             gap: 16,
-            border: "3px solid #06ffef",
+            border: "3px solid #2DE2D0",
             borderRadius: 16,
             padding: "16px 32px",
           }}
         >
-          <span style={{ fontSize: 56, fontWeight: 700, color: "#ffffff" }}>
+          <span style={{ fontSize: 56, fontWeight: 700, color: "#E6EEEC" }}>
             Believi
           </span>
-          <span style={{ fontSize: 56, fontWeight: 700, color: "#06ffef" }}>
+          <span style={{ fontSize: 56, fontWeight: 700, color: "#2DE2D0" }}>
             IA
           </span>
         </div>
@@ -46,7 +46,7 @@ export default function OpengraphImage() {
           style={{
             marginTop: 40,
             fontSize: 32,
-            color: "#c8d1d9",
+            color: "#A6B5B1",
             textAlign: "center",
             maxWidth: 900,
           }}

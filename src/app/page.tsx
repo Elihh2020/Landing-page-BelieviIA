@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Problemas from "@/components/Problemas";
 import Solucoes from "@/components/Solucoes";
@@ -38,7 +37,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <Header />
       <main>
         <Hero />
         <Problemas />
