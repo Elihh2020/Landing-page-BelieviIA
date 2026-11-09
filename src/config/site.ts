@@ -5,7 +5,7 @@
  */
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://believiia.com.br";
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://believi.ia.br";
 
 export const SITE_NAME = "Believi IA";
 
@@ -42,13 +42,13 @@ export const NAV_LINKS = [
   { href: "/#faq", label: "FAQ" },
 ] as const;
 
-/** IDs de rastreamento — substitua pelos valores reais antes de publicar. */
+/**
+ * IDs de rastreamento. O GTM gerencia GA4/Google Ads (não instale o GA direto
+ * no HTML). O ID do contêiner é público por natureza.
+ */
 export const TRACKING = {
-  gtmId: process.env.NEXT_PUBLIC_GTM_ID || "",
-  ga4Id: process.env.NEXT_PUBLIC_GA4_ID || "",
+  gtmId: process.env.NEXT_PUBLIC_GTM_ID || "GTM-T4P6W9B9",
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID || "",
-  googleAdsId: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "",
-  googleAdsConversionLabel: process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL || "",
 };
 
 /**

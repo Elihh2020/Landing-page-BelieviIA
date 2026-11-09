@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { spaceGrotesk, jetbrainsMono, caveat } from "@/lib/fonts";
 import {
   LINKEDIN_URL,
+  TRACKING,
   SITE_NAME,
   SITE_URL,
   SOCIAL_URL,
   WHATSAPP_NUMBER,
 } from "@/config/site";
 import { jsonLd } from "@/lib/jsonLd";
+import { gtmHeadScript } from "@/lib/consent";
 import UtmCapture from "@/components/UtmCapture";
 import ConsentManager from "@/components/ConsentManager";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
@@ -77,7 +79,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="pt-BR"
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${caveat.variable}`}
     >
+      <head>
+        {/* Google Tag Manager — logo no início do <head>, com Consent Mode v2 */}
+        <script dangerouslySetInnerHTML={{ __html: gtmHeadScript(TRACKING.gtmId) }} />
+      </head>
       <body className="min-h-screen bg-bv-bg font-sans text-bv-text antialiased">
+        {/* Google Tag Manager (noscript) — logo após a abertura do <body> */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${TRACKING.gtmId}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLd([organizationJsonLd, websiteJsonLd]) }}

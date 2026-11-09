@@ -2,15 +2,14 @@
 
 import { useEffect, useState } from "react";
 import AnalyticsScripts from "@/components/AnalyticsScripts";
-
-const CONSENT_KEY = "believi_cookie_consent";
+import { CONSENT_KEY, updateConsent } from "@/lib/consent";
 
 type ConsentState = "granted" | "denied" | null;
 
 /**
- * Banner de consentimento (LGPD). Tags de marketing (GTM/GA4/Pixel) só são
- * carregadas depois do aceite — ver <AnalyticsScripts/>. Alternativa mais
- * robusta: integrar ao Google Consent Mode v2 dentro do próprio container GTM.
+ * Banner de consentimento (LGPD). O GTM já carrega no <head> com consentimento
+ * "negado" (Consent Mode v2); a escolha aqui atualiza esse consentimento.
+ * O Meta Pixel só é montado depois do aceite — ver <AnalyticsScripts/>.
  */
 export default function ConsentManager() {
   const [consent, setConsent] = useState<ConsentState>(null);
@@ -39,6 +38,7 @@ export default function ConsentManager() {
     } catch {
       // segue sem persistir se localStorage não estiver disponível
     }
+    updateConsent(choice === "granted");
     setConsent(choice);
     setShowBanner(false);
   };

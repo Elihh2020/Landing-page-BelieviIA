@@ -5,47 +5,13 @@ import { TRACKING } from "@/config/site";
 import ScrollDepthTracker from "@/components/ScrollDepthTracker";
 
 /**
- * Scripts de marketing (GTM, GA4, Meta Pixel). Só são montados depois que o
- * visitante aceita cookies em <ConsentManager/>. IDs vazios simplesmente não
- * renderizam o script correspondente — configure em .env.local.
+ * Scripts que só podem rodar depois do aceite de cookies (Meta Pixel e
+ * profundidade de rolagem). O GTM fica no <head> (ver app/layout.tsx), com
+ * Consent Mode v2 controlando o que ele pode gravar.
  */
 export default function AnalyticsScripts() {
   return (
     <>
-      {TRACKING.gtmId && (
-        <Script id="gtm-base" strategy="afterInteractive">
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-            var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-            j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','${TRACKING.gtmId}');
-          `}
-        </Script>
-      )}
-
-      {TRACKING.ga4Id && (
-        <>
-          <Script
-            id="ga4-lib"
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${TRACKING.ga4Id}`}
-          />
-          <Script id="ga4-init" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${TRACKING.ga4Id}');
-              ${
-                TRACKING.googleAdsId
-                  ? `gtag('config', '${TRACKING.googleAdsId}');`
-                  : ""
-              }
-            `}
-          </Script>
-        </>
-      )}
-
       {TRACKING.metaPixelId && (
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
